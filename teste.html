@@ -1,0 +1,455 @@
+Com certeza! Já atualizei o código para incluir sua nova experiência na **Tom Educação** no topo da linha do tempo, mantendo o padrão visual e profissional do site.
+
+Aqui está o código completo atualizado:
+
+```html
+<!DOCTYPE html><html lang="pt-br"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandre de Oliveira Contreira | Desenvolvedor & Educador Tecnológico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- Reset e Variáveis de Estilo --- */
+        :root {
+            --primary-color: #1a252f;    /* Azul-petróleo muito escuro (Profissional) */
+            --secondary-color: #2c3e50;  /* Azul-petróleo escuro */
+            --accent-color: #16a085;     /* Verde-azulado (Destaque sutil) */
+            --bg-light: #ffffff;
+            --bg-alt: #f8f9fa;
+            --text-main: #333333;
+            --text-muted: #7f8c8d;
+            --border-color: #e1e8ed;
+            --shadow-sm: 0 2px 5px rgba(0,0,0,0.05);
+            --shadow-md: 0 5px 15px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-alt);
+            scroll-behavior: smooth;
+        }
+
+        /* --- Layout Global --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+
+        /* --- Cabeçalho e Navegação --- */
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand h1 { font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .brand span { color: var(--accent-color); }
+
+        nav ul { display: flex; gap: 20px; }
+        nav a { font-size: 0.85rem; font-weight: 500; text-transform: uppercase; opacity: 0.8; }
+        nav a:hover { opacity: 1; color: var(--accent-color); }
+
+        /* --- Seção Hero / Contato --- */
+        .hero {
+            background-color: var(--bg-light);
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-alt);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-details h2 { font-size: 2.3rem; color: var(--primary-color); margin-bottom: 5px; line-height: 1.2;}
+        .contact-details h3 { font-size: 1.1rem; color: var(--accent-color); font-weight: 500; margin-bottom: 15px; }
+
+        .info-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .info-meta span i { margin-right: 8px; color: var(--secondary-color); width: 20px; text-align: center; }
+
+        .social-links { display: flex; gap: 15px; }
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: var(--bg-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .btn-social i { margin-right: 8px; font-size: 1rem; }
+        .btn-social:hover {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* --- Seções Gerais --- */
+        section { padding: 60px 0; }
+        .section-alt { background-color: var(--bg-light); border-bottom: 1px solid var(--border-color); }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.9rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0;
+        }
+
+        /* --- Sobre Mim --- */
+        .about-text p { margin-bottom: 15px; color: var(--text-main); font-size: 1.05rem; text-align: justify;}
+
+        /* --- Competências --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: var(--bg-alt);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            background-color: #fff;
+            border-color: var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-3px);
+        }
+
+        .skill-icon-container {
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .skill-icon-container img {
+            max-height: 50px;
+            max-width: 50px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .skill-card:hover .skill-icon-container img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .skill-card h4 { font-size: 0.9rem; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.5px;}
+
+        /* --- Experiência Profissional --- */
+        .timeline { position: relative; padding-left: 30px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--border-color);
+        }
+
+        .timeline-item { position: relative; margin-bottom: 40px; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 2px solid var(--accent-color);
+            z-index: 10;
+        }
+
+        .timeline-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;}
+        .timeline-header h3 { font-size: 1.2rem; color: var(--primary-color); }
+        .timeline-header h4 { font-size: 0.95rem; color: var(--accent-color); font-weight: 500;}
+        .timeline-date { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; background-color: var(--bg-alt); padding: 4px 10px; border-radius: 20px; white-space: nowrap;}
+
+        .timeline-content ul { padding-left: 20px; list-style: disc; color: var(--text-main); }
+        .timeline-content li { margin-bottom: 5px; font-size: 0.95rem;}
+        .tag-group { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 5px; }
+        .tag { font-size: 0.75rem; background: #eef2f3; padding: 2px 8px; border-radius: 4px; color: var(--secondary-color); font-weight: 600; border: 1px solid var(--border-color); }
+
+        /* --- Rodapé --- */
+        footer {
+            background-color: var(--primary-color);
+            color: rgba(255,255,255,0.7);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 768px) {
+            .hero-content { flex-direction: column; text-align: center; gap: 20px; }
+            .header-content { flex-direction: column; gap: 10px; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .timeline-header { flex-direction: column; gap: 5px; }
+            .timeline-date { align-self: center; margin-top: 5px;}
+        }
+    </style></head><body>
+
+    <header>
+        <div class="container header-content">
+            <div class="brand">
+                <h1>Alexandre <span>Contreira</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">Sobre Mim</a></li>
+                    <li><a href="#skills">Competências</a></li>
+                    <li><a href="#experience">Experiência</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <img src="/img/foto_perfil.jpg" alt="Alexandre de Oliveira Contreira" class="profile-pic">
+            
+            <div class="contact-details">
+                <h2>Alexandre de Oliveira Contreira</h2>
+                <h3>Docente de Tecnologia & Desenvolvedor Full-Stack em Transição</h3>
+                <div class="info-meta">
+                    <span><i class="fas fa-envelope"></i> contreira1106@gmail.com</span>
+                    <span><i class="fas fa-phone"></i> (41) 98896-9230</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/alexandrecontreira" target="_blank" class="btn-social">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://br.linkedin.com/in/alexandre-de-oliveira-contreira-7b46305a" target="_blank" class="btn-social">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-alt">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <h3 class="section-subtitle">Paixão por educar e desejo constante de codificar.</h3>
+            <div class="about-text">
+                <p>Com mais de uma década de experiência dedicada à docência em Cursos Técnicos de Desenvolvimento de Sistemas e Suporte Técnico, possuo uma base sólida teórica e prática em TI. Minha trajetória é marcada pela formação de novos talentos e pela busca incessante por atualização tecnológica.</p>
+                <p><strong>Meu Objetivo Atual:</strong> Transitar para o mercado de desenvolvimento profissional. Busco vivenciar a rotina diária de uma equipe de programação, aplicando meus conhecimentos e evoluindo continuamente. Tenho consolidado minhas habilidades práticas participando de projetos reais e voluntários, utilizando tecnologias modernas como <strong>HTML, CSS, Bootstrap, Sass e Git</strong> dentro de processos ágeis.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Competências</h2>
+            <h3 class="section-subtitle">Tecnologias e ferramentas que domino.</h3>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon-container">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5 Logo">
+                    </div>
+                    <h4>HTML5</h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon-container">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3 Logo">
+                    </div>
+                    <h4>CSS3</h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon-container">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript Logo">
+                    </div>
+                    <h4>JavaScript</h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon-container">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL Logo">
+                    </div>
+                    <h4>MySQL</h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon-container">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git Logo">
+                    </div>
+                    <h4>Git & GitHub</h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon-container">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain.svg" alt="Bootstrap Logo">
+                    </div>
+                    <h4>Bootstrap</h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon-container">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="Sass Logo">
+                    </div>
+                    <h4>Sass</h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon-container">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ie10/ie10-original.svg" alt="IT Icon" style="filter: invert(1);">
+                    </div>
+                    <h4>Hardware & Suporte</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section-alt">
+        <div class="container">
+            <h2 class="section-title">Experiência</h2>
+            <h3 class="section-subtitle">Minha trajetória profissional e projetos.</h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>Tom Educação</h3>
+                            <h4>Suporte técnico N2 e Docente de Programação</h4>
+                        </div>
+                        <span class="timeline-date">Mar 2025 – Momento</span>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Atendimento ao usuário para resolução de problemas técnicos nível N2, diagnóstico e manutenção de hardware/software.</li>
+                            <li>Instalação e configuração de sistemas operacionais, aplicativos e periféricos, garantindo a integridade da infraestrutura de TI.</li>
+                            <li>Docência com foco em programação e banco de dados, atuando no planejamento de aulas e elaboração de material didático.</li>
+                            <li>Aplicação de metodologias ativas e mentoria para alunos, integrando conhecimentos de desenvolvimento de software e infraestrutura.</li>
+                        </ul>
+                        <div class="tag-group">
+                            <span class="tag">Hard Skills</span>
+                            <span class="tag">Pedagogia</span>
+                            <span class="tag">Metodologias Ativas</span>
+                            <span class="tag">Infraestrutura</span>
+                            <span class="tag">Suporte N2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>Secretaria de Estado da Educação (SEED-PR)</h3>
+                            <h4>Docente de Ensino Técnico (Desenvolvimento de Sistemas)</h4>
+                        </div>
+                        <span class="timeline-date">Fev 2014 – Momento</span>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Planejamento e regência de aulas para os cursos Técnicos Integrados em Desenvolvimento de Sistemas.</li>
+                            <li>Disciplinas: FrontEnd, BackEnd, Banco de Dados (MySQL), Lógica de Programação e Arquitetura de Computadores.</li>
+                            <li>Orientação de projetos práticos focados em preparar os alunos para os desafios reais do mercado de trabalho.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>Projeto Voluntário (ONG)</h3>
+                            <h4>Desenvolvedor Front-End</h4>
+                        </div>
+                        <span class="timeline-date">Período Recente</span>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Desenvolvimento de interfaces web modernas utilizando <strong>Bootstrap, Sass e Gulp</strong>.</li>
+                            <li>Controle de versão e colaboração técnica via <strong>Git e GitHub</strong> com revisões de código constantes.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>Profissional Autônomo (MEI)</h3>
+                            <h4>Especialista em Suporte e Manutenção</h4>
+                        </div>
+                        <span class="timeline-date">Atuação Paralela</span>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Montagem e manutenção de microcomputadores e suporte especializado para redes escolares estaduais.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Alexandre de Oliveira Contreira &copy; 2026. Todos os direitos reservados.</p>
+        </div>
+    </footer></body></html>
+```
